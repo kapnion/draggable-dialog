@@ -1,0 +1,41 @@
+ <button (click)="openDialog()">Dialog öffnen</button>
+
+
+
+    <div class="table-container" [class.blur]="isDialogOpen && !isOverlayTransparent">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Adresse</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (row of tableData; track row) {
+            <tr>
+              <td>{{row.col1}}</td>
+              <td>{{row.col2}}</td>
+              <td>{{row.col3}}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    @if (isDialogOpen) {
+      <div class="overlay"
+
+           [class.transparent]="isOverlayTransparent"
+           (mousedown)="makeOverlayTransparent($event)">
+        <div class="dialog" #dialogElement
+             (mousedown)="onDialogMouseDown($event)"
+
+             (click)="$event.stopPropagation(); makeOverlayOpaque($event)">
+          <h2>Dialog Inhalt</h2>
+          <p>Dies ist der Inhalt des Dialogs.</p>
+
+          <button (click)="closeDialog()">Schließen</button>
+        </div>
+      </div>
+      }

@@ -1,0 +1,96 @@
+.table-container {
+  // max-height: 100vh;
+  overflow-y: auto;
+
+  &.blur {
+    filter: blur(3px);
+  }
+
+  table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th, td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+    }
+
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.transparent {
+    background-color: transparent;
+    pointer-events: none;
+  }
+}
+
+.dialog {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  cursor: move;
+  position: absolute;
+  pointer-events: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  background-color: #0078d4;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #005a9e;
+  }
+
+  &:active {
+    background-color: #004578;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #80bfff;
+  }
+
+  &:disabled {
+    background-color: #f3f2f1;
+    color: #a19f9d;
+    cursor: not-allowed;
+  }
+}
+
+* {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
